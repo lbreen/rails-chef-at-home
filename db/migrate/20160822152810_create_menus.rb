@@ -7,7 +7,7 @@ class CreateMenus < ActiveRecord::Migration[5.0]
       t.integer :price
       t.integer :preparation_time
       t.integer :min_guests
-      t.integer :mex_guests
+      t.integer :max_guests
       t.text :starter
       t.text :main
       t.text :dessert
