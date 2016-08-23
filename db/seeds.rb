@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Menu.destroy_all
+
+Menu.create!(name: "Le Test",price:40, preparation_time: 50, min_guests: 2, max_guests: 6, category: "Belgian")
