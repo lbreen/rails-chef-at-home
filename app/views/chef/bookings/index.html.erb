@@ -9,6 +9,7 @@
        <p> <%= booking.location %> </p>
        <p> <%= booking.time %> </p>
        <p> <%= booking.guests %> </p>
+     <%= link_to "See Details", user_booking_path, {class: "btn-btn-danger btn-lg"} %>
       </div>
     <% end %>
   </div>
