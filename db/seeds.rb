@@ -17,7 +17,7 @@ users = []
 menus = []
 category = %w(Italian Chinese Japanese Belgian French Indian Lebanese Persian Italian Etiopian Vietnameese English Spanish Carribean Greek)
 
-10.times do
+15.times do
   users << User.create!({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
