@@ -6,12 +6,4 @@ class Chef::BookingsController < ApplicationController
     @bookings = Booking.where(chef: current_user)
   end
 
-  def show
-  end
-
-  private
-
-  def set_booking
-    @booking = Booking.find(params[:id])
-  end
 end
