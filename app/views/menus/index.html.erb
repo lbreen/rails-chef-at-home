@@ -1,7 +1,7 @@
 <h1> See our menu </h1>
 
 <% @menus.each do |menu| %>
-  <h2> <%= menu.name %> </h2>
+  <h2> <%= link_to menu.name, menu_path(menu.id) %> </h2>
   <ul>
     <li> <%= menu.price %> € </li>
     <li> <%= menu.preparation_time %> minutes </li>
