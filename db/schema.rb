@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823155206) do
+ActiveRecord::Schema.define(version: 20160823093723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20160823155206) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "rating"
-    t.integer  "chef_id"
     t.index ["menu_id"], name: "index_bookings_on_menu_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
@@ -70,6 +69,5 @@ ActiveRecord::Schema.define(version: 20160823155206) do
 
   add_foreign_key "bookings", "menus"
   add_foreign_key "bookings", "users"
-  add_foreign_key "bookings", "users", column: "chef_id"
   add_foreign_key "menus", "users"
 end
