@@ -1,23 +1,11 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:show, :new, :create]
+  before_action :find_user, only: [:show]
 
   def index
-    if @user.admin == true
-      @user = User.all
-    end
+    @users = User.all
   end
   def show
-  end
-  def new
-  end
-  def create
-  end
-  def edit
-  end
-  def update
-  end
-  def destroy
   end
 
   private
