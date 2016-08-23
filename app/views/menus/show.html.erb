@@ -10,9 +10,9 @@
     <li> <%= @menu.dessert %></li>
 
     <% if user_signed_in? %>
-      <%= link_to "Book this menu now", new_menu_booking_path(@menu.id) %>
+      <%= link_to "Book this menu now", new_menu_booking_path(@menu) %>
     <% else %>
-      <%= link_to "Book this menu now", new_user_session_path %>
+      <%= link_to "Book this menu now", new_user_registration_path %>
     <% end %>
 
   </ul>
