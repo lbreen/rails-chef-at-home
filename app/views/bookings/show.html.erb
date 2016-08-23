@@ -1,0 +1,13 @@
+
+ <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/1000/800');"">
+
+  <div class="banner-content">
+    <h1><%= @booking.menu.name %></h1>
+       <p> <%= @booking.menu_id %> </p>
+       <p> <%= @booking.location %> </p>
+       <p> <%= @booking.time %> </p>
+       <p> <%= @booking.guests %> </p>
+        <%= link_to "delete", booking_path, method: :delete, class: "btn btn-danger" %>
+
+  </div>
+</div>

@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   end
 
   namespace :chef do
-    resources :bookings, only:[ :index, :new, :create ]
+    resources :bookings, only:[ :index ]
   end
 
-  resources :menus, only: [:index, :show]
+  resources :menus, only: [:index, :show] do
+    resources :bookings, only: [ :new, :create ]
+  end
 
   resources :users, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
