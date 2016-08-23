@@ -8,6 +8,13 @@
     <li> <%= @menu.starter %></li>
     <li> <%= @menu.main %></li>
     <li> <%= @menu.dessert %></li>
+
+    <% if user_signed_in? %>
+      <%= link_to "Book this menu now", new_user_booking_path %>
+    <% else %>
+      <%= link_to "Book this menu now", new_user_session_path %>
+    <% end %>
+
   </ul>
 
 
