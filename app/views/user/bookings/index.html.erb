@@ -1,0 +1,15 @@
+
+<h1 class="text-center"> Your bookings </h1>
+
+<div class="container">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+
+       <p> <%= booking.menu_id %> </p>
+       <p> <%= booking.location %> </p>
+       <p> <%= booking.time %> </p>
+       <p> <%= booking.guests %> </p>
+      </div>
+    <% end %>
+  </div>
+</div>
