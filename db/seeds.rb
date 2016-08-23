@@ -34,7 +34,7 @@ i = 0
 10.times do
   menus << Menu.create!({
     user_id: users[i].id,
-    name: Faker::Lorem.sentence,
+    name: Faker::Lorem.sentence(2),
     photo: Faker::Placeholdit.image,
     price: rand(5..20),
     preparation_time: rand(20..60),
