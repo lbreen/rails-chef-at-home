@@ -1,16 +1,11 @@
-<h1> See our menu </h1>
+<h1 class="text-center"> See our Menu's</h1>
 
-<div class="container padded">
+<div class="container">
   <div class="row">
-    <% @menus.each do |menu| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <h2> <%= link_to menu.name, menu_path(menu.id) %> </h2>
-          <div class="card-category">
-            <p> Type of cuisine <%= menu.category %></p>
-          </div>
-        </div>
-      </div>
+    <% @menus.each do |m| %>
+    <div class="col-xs-12 col-sm-4">
+        <%= render "card", menu: m %>
+    </div>
     <% end %>
   </div>
 </div>
