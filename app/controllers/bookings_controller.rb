@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @menu = Menu.find(params[:menu_id])
+    @booking.menu = Menu.find(params[:menu_id])
   end
 
   def create
