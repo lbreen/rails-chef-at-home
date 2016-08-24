@@ -1,0 +1,10 @@
+
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path menu.photo %>')">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2> <%= menu.name %> </h2>
+    <p> <%= menu.category %> </p>
+  </div>
+  <%= image_tag "man.jpg", class: "card-user avatar" %>
+  <%= link_to "", menu_path(menu.id), class: "card-link" %>
+</div>
