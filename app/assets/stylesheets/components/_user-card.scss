@@ -35,26 +35,31 @@
   }
 }
 
-.user-card-edit {
+.user-card-btn {
   width: 100%;
   margin-top: 10px;
 }
 
-.user-card-menu {
+.user-card-list {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  color: black;
   img {
-    flex: 0 0 auto;
-  }
-  a {
-    flex: 1 0 auto;
-    margin: 0 0 0 20px;
-    text-decoration: none;
-  }
-  #menu-edit-btn {
     flex: 0 0 auto;
   }
 }
 
+.user-card-list-name {
+  flex: 1 0 auto;
+  margin: 0 0 0 20px;
+  text-decoration: none;
+}
 
+.list-edit-btn {
+  flex: 0 0 auto;
+}
+
+.user-card-empty-list {
+  color: $gray-light;
+}
