@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <%= simple_form_for [@user @menu] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :photo %>
+        <%= f.input :price %>
+        <%= f.input :preparation_time %>
+        <%= f.input :min_guests %>
+        <%= f.input :max_guests %>
+        <%= f.input :starter %>
+        <%= f.input :main %>
+        <%= f.input :dessert %>
+        <%= f.input :category %>
+
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,15 @@ class MenusController < ApplicationController
   def show
   end
 
+  def new
+    @usr = User.find(params[:user_id])
+    @menu = Menu.new
+  end
+
+  def create
+  end
+
+  private
 
   def set_menu
     @menu = Menu.find(params[:id])

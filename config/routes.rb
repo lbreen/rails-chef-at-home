@@ -13,10 +13,12 @@ Rails.application.routes.draw do
     resources :bookings, only:[ :index ]
   end
 
-  resources :menus, only: [:index, :show, :new, :create] do
+  resources :menus, only: [:index, :show] do
     resources :bookings, only: [ :new, :create ]
   end
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resources :menus, only: [:new, :create]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
