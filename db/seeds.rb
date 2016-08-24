@@ -61,7 +61,7 @@ i = 0
     user_id: users[i].id,
     menu_id: menus[i].id,
     location: users[i].postal_address,
-    time: Faker::Time.forward(14, :evening),
+    datetime: Faker::Time.forward(14, :evening),
     guests: rand(0..10),
     })
 
@@ -77,7 +77,7 @@ i = 0
     user_id: users[i + 5].id,
     menu_id: menus[i + 5].id,
     location: users[i].postal_address,
-    time: Faker::Time.backward(14, :evening),
+    datetime: Faker::Time.backward(14, :evening),
     guests: rand(0..10),
     rating: rand(0..5)
     })
