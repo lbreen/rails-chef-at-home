@@ -1,20 +1,26 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <%= simple_form_for [@user @menu] do |f| %>
-        <%= f.input :name %>
-        <%= f.input :photo %>
-        <%= f.input :price %>
-        <%= f.input :preparation_time %>
-        <%= f.input :min_guests %>
-        <%= f.input :max_guests %>
-        <%= f.input :starter %>
-        <%= f.input :main %>
-        <%= f.input :dessert %>
-        <%= f.input :category %>
 
-        <%= f.button :submit %>
-      <% end %>
+<div class="form-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="form">
+          <h1>Create a new meal</h1>
+          <%= simple_form_for [@user, @menu] do |f| %>
+            <%= f.input :name, placeholder: "What is the name?" %>
+            <%= f.input :photo %>
+            <%= f.input :price, placeholder: "How much per person?" %>
+            <%= f.input :preparation_time, placeholder: "How long will it take to cook?" %>
+            <%= f.input :min_guests %>
+            <%= f.input :max_guests %>
+            <%= f.input :starter, placeholder: "Enter a brief description of the starter" %>
+            <%= f.input :main, placeholder: "Enter a brief description of the main" %>
+            <%= f.input :dessert, placeholder: "Enter a brief description of the dessert" %>
+            <%= f.input :category %>
+
+            <%= f.button :submit, { class: "btn btn-danger wide-btn"} %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
