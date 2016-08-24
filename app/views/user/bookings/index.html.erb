@@ -5,7 +5,7 @@
   <div class="row">
     <% @bookings.each do |booking| %>
 
-       <p> <%= booking.menu_id %> </p>
+       <p> <%= booking.menu.name %> </p>
        <p> <%= booking.location %> </p>
        <p> <%= booking.datetime %> </p>
        <p> <%= booking.guests %> </p>

@@ -20,7 +20,10 @@ class BookingsController < ApplicationController
 
 
   def show
-
+    @hash = Gmaps4rails.build_markers(@booking) do |booking, marker|
+      marker.lat booking.latitude
+      marker.lng booking.longitude
+    end
   end
 
   private
