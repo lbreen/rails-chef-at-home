@@ -10,8 +10,14 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.menu = Menu.find(params[:menu_id])
     @booking.user = current_user
-    @booking.save
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
+
+
 
   def show
 
