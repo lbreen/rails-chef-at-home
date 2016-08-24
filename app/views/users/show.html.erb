@@ -1,6 +1,81 @@
-<h1>User Profile</h1>
+<div class="wrapper-user">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <div class="user-card text-center">
+          <h1>My Profile</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="user-card">
+          <div class="user-card-info">
+            <div class="user-card-photo">
+              <%= image_tag "lbreen_profile.jpg", { class: "img-circle" } %>
+            </div>
+            <div class="user-card-details">
+              <h2>Account details </h2>
 
-<p>Name: <%= "#{@user.first_name} #{@user.last_name}" %></p>
-<p>Email: <%= @user.email %></p>
-<p>Address: <%= @user.postal_address %></p>
-<p>Description: <%= @user.description %></p>
+              <p><strong>Name:</strong> <%= "#{@user.first_name} #{@user.last_name}" %></p>
+              <p><strong>Email:</strong> <%= @user.email %></p>
+              <p><strong>Address:</strong> <%= @user.postal_address %></p>
+
+              <%= link_to "Edit", edit_user_registration_path, { class: "btn btn-danger user-card-btn" } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="user-card">
+          <div class="user-card-title text-center">
+            <h2>My menus</h2>
+          </div>
+          <div class="user-card-details">
+            <% if @user.menus.count == 0 %>
+              <div class="user-card-empty-list text-center">
+                <p>You don't have any menus yet!</p>
+              </div>
+            <% else %>
+              <% @user.menus.each do |menu| %>
+                <div class="user-card-list">
+                  <%= image_tag menu.photo, { class: "avatar"} %>
+                  <%= link_to menu.name, menu_path(menu), { class: "user-card-list-name"} %>
+                  <!-- The link below needs to be linked to the menu#edit path - not yet created -->
+                  <%= link_to "Edit", user_path(menu.user), { class: "btn btn-danger list-edit-btn" } %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- This link needs to be linked to the menu#new path - not yet created -->
+          <%= link_to "Add new menu", root_path, { class: "btn btn-danger user-card-btn" } %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="user-card">
+          <div class="user-card-title text-center">
+            <h2>My bookings</h2>
+          </div>
+          <div class="user-card-details">
+            <% if @user.bookings.count == 0 %>
+              <div class="user-card-empty-list text-center">
+                <p>You don't have any bookings yet!</p>
+              </div>
+            <% else %>
+              <% @user.bookings.each do |booking| %>
+                <div class="user-card-list">
+                  <%= link_to booking.menu.name, booking_path(booking), { class: "user-card-list-name"} %>
+                  <p> on <%= booking.datetime %></p>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%= link_to "View all bookings", root_path, { class: "btn btn-danger user-card-btn" } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
