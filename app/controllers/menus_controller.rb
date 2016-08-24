@@ -20,16 +20,13 @@ class MenusController < ApplicationController
       redirect_to menu_path(@menu)
     else
       render :new
+    end
   end
 
   private
 
   def set_menu
     @menu = Menu.find(params[:id])
-  end
-
-  def find_user
-
   end
 
   def menu_params
