@@ -24,17 +24,37 @@
 .user-card-photo {
   flex: 0 0 auto;
   margin-left: 10px;
+  margin-right: 40px;
 }
 
 .user-card-details {
   min-height: 180px;
   flex: 1 0 auto;
-  margin-left: 40px;
+  h2 {
+    text-align: text-center;
+  }
 }
 
 .user-card-edit {
   width: 100%;
   margin-top: 10px;
+}
+
+.user-card-menu {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  img {
+    flex: 0 0 auto;
+  }
+  a {
+    flex: 1 0 auto;
+    margin: 0 0 0 20px;
+    text-decoration: none;
+  }
+  #menu-edit-btn {
+    flex: 0 0 auto;
+  }
 }
 
 

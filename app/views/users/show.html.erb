@@ -16,6 +16,7 @@
           </div>
           <div class="user-card-details">
             <h2>Account details </h2>
+
             <p><strong>Name:</strong> <%= "#{@user.first_name} #{@user.last_name}" %></p>
             <p><strong>Email:</strong> <%= @user.email %></p>
             <p><strong>Address:</strong> <%= @user.postal_address %></p>
@@ -33,8 +34,19 @@
           <h2>My menu's</h2>
         </div>
         <div class="user-card-details">
-
+          <% if @user.menus.count == 0 %>
+            <p>You don't have any menus yet!</p>
+          <% else %>
+            <% @user.menus.each do |menu| %>
+              <div class="user-card-menu">
+                <%= image_tag menu.photo, { class: "avatar"} %>
+                <%= link_to menu.name, menu_path(menu) %>
+                <%= link_to "Edit", user_path(menu.user), { class: "btn btn-danger", id: "menu-edit-btn" } %>
+              </div>
+            <% end %>
+          <% end %>
         </div>
+        <%= link_to "Add new menu", root_path, { class: "btn btn-danger" } %>
       </div>
     </div>
     <div class="col-xs-12 col-sm-6">
@@ -45,6 +57,7 @@
         <div class="user-card-details">
 
         </div>
+        <%= link_to "View all bookings", root_path, { class: "btn btn-danger" } %>
       </div>
     </div>
   </div>
