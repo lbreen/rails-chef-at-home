@@ -1,6 +1,6 @@
 <%= simple_form_for [@booking.menu, @booking] do |f| %>
   <%= f.input :location %>
-  <%= f.input :time %>
+  <%= f.input :datetime %>
   <%= f.input :guests %>
   <%= f.submit "Make a booking", class: "btn btn-primary" %>
 <% end %>
