@@ -1,6 +1,55 @@
-<h1>User Profile</h1>
+<div class="wrapper-user">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <div class="user-card text-center">
+        <h1>My Profile</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="user-card">
+        <div class="user-card-info">
+          <div class="user-card-photo">
+            <%= image_tag "lbreen_profile.jpg", { class: "img-circle" } %>
+          </div>
+          <div class="user-card-details">
+            <h2>Account details </h2>
+            <p><strong>Name:</strong> <%= "#{@user.first_name} #{@user.last_name}" %></p>
+            <p><strong>Email:</strong> <%= @user.email %></p>
+            <p><strong>Address:</strong> <%= @user.postal_address %></p>
 
-<p>Name: <%= "#{@user.first_name} #{@user.last_name}" %></p>
-<p>Email: <%= @user.email %></p>
-<p>Address: <%= @user.postal_address %></p>
-<p>Description: <%= @user.description %></p>
+            <%= link_to "Edit", edit_user_registration_path, { class: "btn btn-danger user-card-edit" } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="user-card">
+        <div class="user-card-title text-center">
+          <h2>My menu's</h2>
+        </div>
+        <div class="user-card-details">
+
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="user-card">
+        <div class="user-card-title text-center">
+          <h2>My bookings</h2>
+        </div>
+        <div class="user-card-details">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
