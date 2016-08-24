@@ -1,20 +1,45 @@
-<h1> <%= @menu.name %> </h1>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path @menu.photo %>')">
+  <div class="banner-content text-center">
+    <h1><%= @menu.name %></h1>
+  </div>
+</div>
 
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+        <div class="user-card-info ">
+          <div class="user-card-photo"> <%= image_tag "lbreen_profile.jpg", class: "avatar-large" %> </div>
+          <div class="user-card-details">
+            <h2>your chef</h2>
+            <p>(He is a good lad)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+        <p>
+          <% if user_signed_in? %>
+          <%= link_to "Book this menu now", new_menu_booking_path(@menu), {class: "btn btn-danger"} %>
+          <% else %>
+          <%= link_to "Book this menu now", new_user_registration_path, {class: "btn btn-danger"} %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="wrapper">
   <ul>
-    <li> <%= @menu.price %> € </li>
-    <li> <%= @menu.preparation_time %> minutes </li>
+    <li> <%= @menu.price %> £ </li>
+    <li> Type of cuisine <%= @menu.category %></li>
     <li> from <%= @menu.min_guests %> to <%= @menu.max_guests %> </li>
-    <li> Type of cuisine <%= @menu.category %> </li>
-    <li> <%= @menu.starter %></li>
-    <li> <%= @menu.main %></li>
-    <li> <%= @menu.dessert %></li>
-
-    <% if user_signed_in? %>
-      <%= link_to "Book this menu now", new_menu_booking_path(@menu) %>
-    <% else %>
-      <%= link_to "Book this menu now", new_user_registration_path %>
-    <% end %>
-
+    <li> Starter <%= @menu.starter %></li>
+    <li> Main Course <%= @menu.main %></li>
+    <li> Dessert <%= @menu.dessert %></li>
   </ul>
+</div>
+
 
 
