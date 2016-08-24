@@ -12,10 +12,14 @@ require 'devise'
 # Booking.destroy_all
 # User.destroy_all
 # Menu.destroy_all
+Booking.destroy_all
+Menu.destroy_all
+User.destroy_all
 
 users = []
 menus = []
 category = %w(Italian Chinese Japanese Belgian French Indian Lebanese Persian Italian Etiopian Vietnameese English Spanish Carribean Greek)
+picture = %w(Menu01.jpg Menu02.jpeg Menu-italian03.jpeg Menu-Japanese04.jpeg Menu-International05.jpeg Menu-Fish06.jpeg Menu-Burger07.jpeg Cook-India08.jpg Menu-Pasta09.jpg Menu-Pizza10.jpg Menu-English11.jpg Indian-photo12.jpg)
 
 15.times do
   users << User.create!({
@@ -35,7 +39,7 @@ i = 0
   menus << Menu.create!({
     user_id: users[i].id,
     name: Faker::Lorem.sentence(2),
-    photo: Faker::Placeholdit.image,
+    photo: picture[i],
     price: rand(5..20),
     preparation_time: rand(20..60),
     min_guests: rand(1..4),
