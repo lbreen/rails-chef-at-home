@@ -1,11 +1,11 @@
-<h1> See our menu </h1>
+<h1 class="text-center"> See our Menu's</h1>
 
-<% @menus.each do |menu| %>
-  <h2> <%= link_to menu.name, menu_path(menu.id) %> </h2>
-  <ul>
-    <li> <%= menu.price %> € </li>
-    <li> <%= menu.preparation_time %> minutes </li>
-    <li> from <%= menu.min_guests %> to <%= menu.max_guests %> </li>
-    <li> Type of cuisine <%= menu.category %> </li>
-  </ul>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @menus.each do |m| %>
+    <div class="col-xs-12 col-sm-4">
+        <%= render "card", menu: m %>
+    </div>
+    <% end %>
+  </div>
+</div>
