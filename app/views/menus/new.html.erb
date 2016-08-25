@@ -15,6 +15,7 @@
             <%= f.input :main, placeholder: "Enter a brief description of the main" %>
             <%= f.input :dessert, placeholder: "Enter a brief description of the dessert" %>
             <%= f.input :category %>
+            <%= f.input :photos, as: :attachinary, hint: "Upload photos of your menu. Max 4 photos" %>
 
             <%= f.button :submit, { class: "btn btn-danger wide-btn"} %>
           <% end %>
