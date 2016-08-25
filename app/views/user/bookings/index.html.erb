@@ -9,9 +9,14 @@
         <%= image_tag "https://unsplash.it/500/300", { class: "product-image hidden-xs"} %>
         <div class='product-body'>
           <p> <%= booking.menu.name %> </p>
-          <p> <%= booking.location %> </p>
-          <p> <%= booking.datetime %> </p>
-          <p> <%= booking.guests %> </p>
+
+          <ul>
+            <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.datetime %></li>
+            <li><i class="fa fa-map-marker" aria-hidden="true"> </i> <%= booking.location %></li>
+            <li> <i class="fa fa-money" aria-hidden="true"></i> <%= booking.menu.price %> £ p/p </li>
+            <li> <i class="fa fa-cutlery" aria-hidden="true"></i> <%= booking.menu.category %></li>
+            <li> <i class="fa fa-users" aria-hidden="true"></i> <%= booking.guests %> </li>
+          </ul>
         </div>
         <%= link_to "", booking_path(booking), class: "product-link" %>
       </div>
@@ -27,15 +32,21 @@
         <%= image_tag "https://unsplash.it/500/300", { class: "product-image hidden-xs"} %>
         <div class='product-body'>
           <p> <%= booking.menu.name %> </p>
-          <p> <%= booking.location %> </p>
-          <p> <%= booking.datetime %> </p>
-          <p> <%= booking.guests %> </p>
+          <ul>
+            <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.datetime %></li>
+            <li><i class="fa fa-map-marker" aria-hidden="true"> </i> <%= booking.location %></li>
+            <li> <i class="fa fa-money" aria-hidden="true"></i> <%= booking.menu.price %> £ p/p </li>
+            <li> <i class="fa fa-cutlery" aria-hidden="true"></i> <%= booking.menu.category %></li>
+            <li> <i class="fa fa-users" aria-hidden="true"></i> <%= booking.guests %> </li>
+          </ul>
         </div>
         <%= link_to "", booking_path(booking), class: "product-link" %>
       </div>
     <% end %>
   <% end %>
 </div>
+
+
 
 
 

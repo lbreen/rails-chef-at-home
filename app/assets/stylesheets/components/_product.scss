@@ -21,6 +21,11 @@
   margin-top: 0;
 }
 .product-body p {
+  color: gray-darker;
+  margin-bottom: 10px;
+}
+
+.product-body li {
   font-weight: lighter;
   color: #999999;
   margin-bottom: 0;
@@ -74,14 +79,9 @@
   background: #f7f7fa;
   cursor: pointer;
 }
-.product-upvote:hover {
-  color: #5898f1;
-  cursor: pointer;
-}
 
 .product-link:hover{
   opacity: 0.1;
+  border-radius: 3px;
 }
-.product:hover .product-upvote { transform: scale(1.2) }
-.product:hover .product-controls-hidden a { color: #E6E6E6 }
-.product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
+
