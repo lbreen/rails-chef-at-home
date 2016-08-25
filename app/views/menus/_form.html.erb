@@ -1,0 +1,14 @@
+ <%= simple_form_for [@user, @menu] do |f| %>
+  <%= f.input :name, placeholder: "What is the name?" %>
+  <%= f.input :price, placeholder: "How much per person?" %>
+  <%= f.input :preparation_time, placeholder: "How long will it take to cook?" %>
+  <%= f.input :min_guests %>
+  <%= f.input :max_guests %>
+  <%= f.input :starter, placeholder: "Enter a brief description of the starter" %>
+  <%= f.input :main, placeholder: "Enter a brief description of the main" %>
+  <%= f.input :dessert, placeholder: "Enter a brief description of the dessert" %>
+  <%= f.input :category %>
+  <%= f.input :photos, as: :attachinary, hint: "Upload photos of your menu. Max 4 photos" %>
+
+  <%= f.button :submit, { class: "btn btn-danger wide-btn"} %>
+<% end %>
