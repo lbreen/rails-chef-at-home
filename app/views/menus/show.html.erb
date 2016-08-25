@@ -4,18 +4,66 @@
   </div>
 </div>
 
-<div class="wrapper">
+<div class="wrapper-user">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-        <div class="user-card-info ">
-          <div class="user-card-photo"> <%= image_tag "lbreen_profile.jpg", class: "avatar-large" %> </div>
-          <div class="user-card-details">
-            <h2>your chef</h2>
-            <p>(He is a good lad)</p>
+      <div class="col-xs-12 col-sm-6">
+        <div class="user-card">
+          <div class="user-card-title text-center">
+            <h2> Your Chef </h2>
+          </div>
+            <div class="user-card-photo text-center">
+              <%= image_tag "lbreen_profile.jpg", { class: "img-circle" } %>
+            </div>
+          <div class="user-card-details text-center">
+            <p class="text-center">he is a good lad</p>
           </div>
         </div>
       </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="user-card">
+          <div class="user-card-title text-center">
+            <h2> Review your menu </h2>
+          </div>
+          <div class="user-card-details">
+            <ul>
+              <li> <%= @menu.price %> £ </li>
+              <li> Type of cuisine <%= @menu.category %></li>
+              <li> from <%= @menu.min_guests %> to <%= @menu.max_guests %> </li>
+              <li> Starter <%= @menu.starter %></li>
+              <li> Main Course <%= @menu.main %></li>
+              <li> Dessert <%= @menu.dessert %></li>
+            </ul>
+          </div>
+            <% if user_signed_in? %>
+            <%= link_to "Book this menu now", new_menu_booking_path(@menu), {class: "btn btn-danger user-card-btn"} %>
+            <% else %>
+            <%= link_to "Book this menu now", new_user_registration_path, {class: "btn btn-danger user-card-btn"} %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="user-card">
+          <div class="user-card-title text-center">
+            <h2>Your Chef</h2>
+          </div>
+              <div class="user-card-photo">
+                <%= image_tag "lbreen_profile.jpg", { class: "img-circle" } %>
+              </div>
+                <div class="user-card-details">
+                  <h2> details </h2>
+                </div>
       <div class="col-xs-12 col-sm-4 col-sm-offset-1">
         <p>
           <% if user_signed_in? %>
@@ -24,13 +72,16 @@
           <%= link_to "Book this menu now", new_user_registration_path, {class: "btn btn-danger"} %>
           <% end %>
         </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
-<div class="wrapper">
+
+<!-- <div class="wrapper">
   <ul>
     <li> <%= @menu.price %> £ </li>
     <li> Type of cuisine <%= @menu.category %></li>
@@ -39,7 +90,7 @@
     <li> Main Course <%= @menu.main %></li>
     <li> Dessert <%= @menu.dessert %></li>
   </ul>
-</div>
+</div> -->
 
 
 
