@@ -25,17 +25,10 @@ class MenusController < ApplicationController
   end
 
   def edit
-    @menu = Menu.find(params[:id])
   end
 
   def update
-    @menu = Menu.new(menu_params)
-    @menu.user = current_user
-    if @menu.save
-      redirect_to menu_path(@menu)
-    else
-      render :new
-    end
+    @menu = Menu.update(menu_params)
   end
 
   private
