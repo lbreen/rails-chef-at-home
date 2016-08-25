@@ -7,7 +7,12 @@ gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
+
+#  Photo upload gems
 gem 'cloudinary', '1.1.0'
+gem "attachinary", github: "assembler/attachinary"
+gem "jquery-fileupload-rails"
+
 
 gem 'sass-rails'
 gem 'jquery-rails'

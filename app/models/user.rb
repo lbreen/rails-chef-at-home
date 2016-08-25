@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   has_many :bookings
   has_many :menus
+  has_attachment :photo
 
   #  These validations are not needed as we do not want to require them on sign up
   # validates :first_name, :last_name, presence: true
