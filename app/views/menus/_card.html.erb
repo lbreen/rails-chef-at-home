@@ -1,10 +1,21 @@
 
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path menu.photo %>')">
+<% if menu.photos? %>
+        <% image = cl_image_path menu.photos[0].path %>
+<% else %>
+        <% image = 'http://placehold.it/350x150' %>
+<% end %>
+
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image %>)"">
+
   <div class="card-category">Popular</div>
   <div class="card-description">
     <h2> <%= menu.name %> </h2>
     <p> <%= menu.category %> </p>
   </div>
-  <%= image_tag "man.jpg", class: "card-user avatar" %>
+  <% if menu.user.photo? %>
+    <%= cl_image_tag menu.user.photo.path, crop: :thumb, gravity: :face, class: "card-user avatar" %>
+  <% else %>
+    <%= image_tag "logo.png", class: "card-user avatar" %>
+  <% end %>
   <%= link_to "", menu_path(menu.id), class: "card-link" %>
 </div>
