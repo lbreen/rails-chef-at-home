@@ -16,7 +16,7 @@
               <% if @user.photo? %>
                 <%= cl_image_tag @user.photo.path, width: 240, height: 240, crop: :fill, class: "img-circle" %>
               <% else %>
-                <%= image_tag "logo.png", class: "img-circle avatar-xl" %>
+                <%= image_tag "logo.png", class: "avatar-xl" %>
               <% end %>
             </div>
             <div class="user-card-details">
@@ -46,7 +46,14 @@
             <% else %>
               <% @user.menus.each do |menu| %>
                 <div class="user-card-list">
-                  <%= image_tag menu.photo, { class: "avatar"} %>
+
+                    <% if menu.photos? %>
+                      <%= cl_image_tag menu.photos[0].path, crop: :fill, class: "avatar" %>
+                    <% else %>
+                      <%= image_tag "logo.png", class: "avatar" %>
+                    <% end %>
+
+
                   <%= link_to menu.name, menu_path(menu), { class: "user-card-list-name"} %>
                   <!-- The link below needs to be linked to the menu#edit path - not yet created -->
                   <%= link_to "Edit", user_path(menu.user), { class: "btn btn-danger list-edit-btn" } %>
