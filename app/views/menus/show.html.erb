@@ -12,12 +12,24 @@
           <div class="user-card-title text-center">
             <h2> Your Chef </h2>
           </div>
-            <div class="user-card-photo text-center">
-              <%= image_tag "lbreen_profile.jpg", { class: "img-circle" } %>
+            <div class="chef-card-photo text-center">
+              <% if @menu.user.photo? %>
+                <%= cl_image_tag @menu.user.photo.path, width: 200, height: 200, crop: :fill, class: "img-circle" %>
+              <% else %>
+                <%= image_tag "logo.png", class: "img-circle avatar-menu text-center" %>
+              <% end %>
             </div>
           <div class="user-card-details text-center">
-            <p class="text-center">he is a good lad</p>
+            <ul class="text-center">
+              <li> <%= @chef.first_name %><%= @chef.last_name %></li>
+              <li> <%= @chef.description %></li>
+            </ul>
           </div>
+            <% if user_signed_in? %>
+            <%= link_to "Chef's profile", new_menu_booking_path(@menu), {class: "btn btn-primary user-card-btn"} %>
+            <% else %>
+            <%= link_to "Chef's profile", new_user_registration_path, {class: "btn btn-primary user-card-btn"} %>
+            <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6">
@@ -45,3 +57,5 @@
     </div>
   </div>
 </div>
+
+
