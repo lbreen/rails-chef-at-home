@@ -1,25 +1,46 @@
 
 <h1 class="text-center"> Your bookings </h1>
 
-
-  <div class="container" id="customer-booking">
-    <h2 class="text-center">Customer</h2>
-      <div class="row">
-
-        <% @bookings_as_user.each do |booking| %>
-          <% if booking.menu.user = current_user %>
-           <p> <%= booking.menu.name %> </p>
-           <p> <%= booking.location %> </p>
-           <p> <%= booking.datetime %> </p>
-           <p> <%= booking.guests %> </p>
-           <%= link_to "See Details", booking_path(booking), {class: "btn-btn-danger btn-lg"} %>
-           <% end %>
-          </div>
-        <% end %>
+<div class="wrapper" id="Customer-bookings">
+  <h2>You have booked</h2>
+  <% @bookings_as_user.each do |booking| %>
+    <% if booking.menu.user = current_user %>
+      <div class="product">
+        <%= image_tag "https://unsplash.it/500/300", { class: "product-image hidden-xs"} %>
+        <div class='product-body'>
+          <p> <%= booking.menu.name %> </p>
+          <p> <%= booking.location %> </p>
+          <p> <%= booking.datetime %> </p>
+          <p> <%= booking.guests %> </p>
+        </div>
+        <%= link_to "", booking_path(booking), class: "product-link" %>
       </div>
-  </div>
+    <% end %>
+  <% end %>
+</div>
 
-  <div class="container" id="customer-booking">
+<div class="wrapper" id="Chef-bookings">
+  <h2>You are booked</h2>
+  <% @bookings_as_chef.each do |booking| %>
+    <% if booking.menu.user = current_user %>
+      <div class="product">
+        <%= image_tag "https://unsplash.it/500/300", { class: "product-image hidden-xs"} %>
+        <div class='product-body'>
+          <p> <%= booking.menu.name %> </p>
+          <p> <%= booking.location %> </p>
+          <p> <%= booking.datetime %> </p>
+          <p> <%= booking.guests %> </p>
+        </div>
+        <%= link_to "", booking_path(booking), class: "product-link" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+ <!--  <div class="container" id="customer-booking">
     <h2 class="text-center">Chef</h2>
       <div class="row">
 
@@ -34,5 +55,5 @@
           </div>
         <% end %>
       </div>
-  </div>
+  </div> -->
 
