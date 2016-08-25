@@ -8,9 +8,28 @@ class MenusController < ApplicationController
   def show
   end
 
+  def new
+    @user = User.find(params[:user_id])
+    @menu = Menu.new
+  end
+
+  def create
+    @menu = Menu.new(menu_params)
+    @menu.user = current_user
+    if @menu.save
+      redirect_to menu_path(@menu)
+    else
+      render :new
+    end
+  end
+
+  private
 
   def set_menu
     @menu = Menu.find(params[:id])
   end
 
+  def menu_params
+    params.require(:menu).permit(:user_id, :name, :photo, :price, :preparation_time, :min_guests, :max_guests, :starter, :main, :dessert, :category)
+  end
 end
