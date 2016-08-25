@@ -1,5 +1,9 @@
 
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path menu.photo %>')">
+<% if menu.photos? %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= climage_path menu.photos(0).path %>')">
+<% else %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://placehold.it/350x150')">
+<% end %>
   <div class="card-category">Popular</div>
   <div class="card-description">
     <h2> <%= menu.name %> </h2>
