@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_menu, only: [:show, :edit]
+  before_action :set_menu, only: [:show, :edit, :destroy]
 
   def index
     @menus = Menu.all
@@ -29,6 +29,11 @@ class MenusController < ApplicationController
 
   def update
     @menu = Menu.update(menu_params)
+  end
+
+  def destroy
+    @menu.destroy
+    redirect_to user_path(current_user)
   end
 
   private
