@@ -1,4 +1,4 @@
- <%= simple_form_for [@user, @menu] do |f| %>
+ <%= simple_form_for @menu do |f| %>
   <%= f.input :name, placeholder: "What is the name?" %>
   <%= f.input :price, placeholder: "How much per person?" %>
   <%= f.input :preparation_time, placeholder: "How long will it take to cook?" %>
