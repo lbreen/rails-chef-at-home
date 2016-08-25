@@ -1,51 +1,101 @@
 
 
-
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV["GOOGLE_API_BROWSER_KEY"]}" %>
   <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
   <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
 
   <%= javascript_include_tag "application" %>
-   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/1000/800');"">
 
-  <div class="banner-content">
-    <h1><%= @booking.menu.name %></h1>
-       <p> <%= @booking.location %> </p>
-       <p> <%= @booking.datetime %> </p>
-       <p> <%= @booking.guests %> </p>
-       <p> <%= @booking.menu.price %> </p>
-       <p> <%= @booking.menu.preparation_time %> </p>
-       <p> <%= @booking.menu.category %> </p>
-       <p> <%= @booking.menu.starter %> </p>
-       <p> <%= @booking.menu.main %> </p>
-       <p> <%= @booking.menu.dessert %> </p>
+  <% if @booking.menu.photos? %>
+        <% image = cl_image_path @booking.menu.photos[0].path %>
+  <% else %>
+        <% image = "https://unsplash.it/1000/800" %>
+  <% end %>
+  <div class="banner" id="half-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image %>);"">
+
+    <div class="banner-content">
+      <h1><%= @booking.menu.name %></h1>
+    </div>
+  </div>
+
+  <div class="wrapper-user">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="user-card">
+            <div class="user-card-title text-center">
+              <h2> Your Chef </h2>
+            </div>
+              <div class="chef-card-photo text-center">
+                <% if @booking.menu.user.photo? %>
+                  <%= cl_image_tag @booking.menu.user.photo.path, width: 200, height: 200, crop: :fill, class: "img-circle" %>
+                <% else %>
+                  <%= image_tag "logo.png", class: "img-circle avatar-menu text-center" %>
+                <% end %>
+              </div>
+            <div class="user-card-details text-center">
+              <ul class="text-center">
+                <li> <%= @booking.menu.user.first_name %><%= @booking.menu.user.last_name %></li>
+                <li> <%= @booking.menu.user.description %></li>
+              </ul>
+            </div>
+              <%= link_to "Chef's profile", new_menu_booking_path(@booking.menu), {class: "btn btn-primary user-card-btn"} %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="user-card">
+            <div class="user-card-title text-center">
+              <h2> Review your menu </h2>
+            </div>
+            <div class="user-card-details">
+              <ul class="text-center">
+                <li><i class="fa fa-calendar" aria-hidden="true"> </i> <%= @booking.datetime %></li>
+                <li><i class="fa fa-map-marker" aria-hidden="true"> </i> <%= @booking.location %></li>
+                <li> <i class="fa fa-money" aria-hidden="true"></i> £<%= @booking.menu.price %> p/p </li>
+                <li> <i class="fa fa-cutlery" aria-hidden="true"></i> <%= @booking.menu.category %></li>
+                <li> <i class="fa fa-users" aria-hidden="true"></i> <%= @booking.guests %></li>
+                <li> <h3>Starter</h3><p> <%= @booking.menu.starter %></p></li>
+                <li> <h3>Main Course</h3><p> <%= @booking.menu.main %></p></li>
+                <li> <h3>Dessert</h3><p> <%= @booking.menu.dessert %></p></li>
+                <li> <%= link_to "See all my bookings", user_bookings_path, class: "btn btn-danger" %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-        <%= link_to "See all my bookings", user_bookings_path, class: "btn btn-danger" %>
 
+
+<%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV["GOOGLE_API_BROWSER_KEY"]}" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+  <%= javascript_include_tag "application" %>
+
+ <div class="wrapper-user">
+  <div class="container">
+  <div id="map" style="width: 100%; height: 600px;"></div>
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).on('ready', function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      });
+    <% end %>
+  <% end %>
+    <%= yield(:after_js) %>
+  </body>
   </div>
 </div>
-<div id="map" style="width: 100%; height: 600px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-<% end %>
-
-  <%= yield(:after_js) %>
-
-
-</body>
