@@ -1,7 +1,7 @@
 class MenusController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_menu, only: [:show, :edit]
-  before_action :find_user, only: [:new, :edit]
+  before_action :find_user, only: [:new]
 
   def index
     @menus = Menu.all
@@ -27,10 +27,17 @@ class MenusController < ApplicationController
   end
 
   def edit
-    #  @menu and @user are set by the before_action
+    #  @menu is set by the before_actio
   end
 
   def update
+    @menu = Menu.new(menu_params)
+    @menu.user = current_user
+    if @menu.save
+      redirect_to menu_path(@menu)
+    else
+      render :new
+    end
   end
 
   private

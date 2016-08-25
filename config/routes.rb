@@ -17,8 +17,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show] do
-    resources :menus, only: [:new, :create, :edit, :update]
+    resources :menus, only: [:new, :create]
   end
+
+  resources :menus, only: [:edit, :update]
 
   mount Attachinary::Engine => "/attachinary"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
