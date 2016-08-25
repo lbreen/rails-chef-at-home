@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  // background-color: $gray-darker;
 }
 .banner h1 {
   font-size: 50px;
@@ -18,4 +19,41 @@
   font-weight: lighter;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
+}
+
+.banner-content{
+  font-size: 14px;
+  line-height: 1.43;
+  padding-top: 30px;
+}
+
+.banner-form{
+  // background-color: $gray-darker;
+  // bottom: 0;
+  right: 0;
+  left: 0;
+
+  padding-top: 30px;
+  position: absolute;
+  margin:0;
+}
+
+.banner-text{
+  padding-bottom: 20px;
+}
+
+video#bgvid {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    // height: auto;
+    // width: 100%;
+    bottom: 0px;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
 }
