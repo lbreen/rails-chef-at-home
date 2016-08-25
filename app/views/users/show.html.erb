@@ -16,7 +16,7 @@
               <% if @user.photo? %>
                 <%= cl_image_tag @user.photo.path, width: 240, height: 240, crop: :fill, class: "img-circle" %>
               <% else %>
-                <%= image_tag "http://lorempixel.com/240/240/" %>
+                <%= image_tag "logo.png", class: "img-circle avatar-xl" %>
               <% end %>
             </div>
             <div class="user-card-details">
