@@ -2,26 +2,11 @@
 <h1 class="text-center"> Your bookings </h1>
 
 
-  <div class="container" id="customer-bookings">
+  <div class="container" id="customer-booking">
     <h2 class="text-center">Customer</h2>
       <div class="row">
-        <% @bookings.each do |booking| %>
-          <% if user = current_user %>
-           <p> <%= booking.menu.name %> </p>
-           <p> <%= booking.location %> </p>
-           <p> <%= booking.datetime %> </p>
-           <p> <%= booking.guests %> </p>
-           <%= link_to "See Details", booking_path(booking), {class: "btn-btn-danger btn-lg"} %>
-           <% end %>
-          </div>
-        <% end %>
-      </div>
-  </div>
 
-  <div class="container" id="chef-bookings">
-    <h2 class="text-center">Chef</h2>
-      <div class="row">
-        <% @bookings.each do |booking| %>
+        <% @bookings_as_user.each do |booking| %>
           <% if booking.menu.user = current_user %>
            <p> <%= booking.menu.name %> </p>
            <p> <%= booking.location %> </p>
@@ -33,3 +18,21 @@
         <% end %>
       </div>
   </div>
+
+  <div class="container" id="customer-booking">
+    <h2 class="text-center">Chef</h2>
+      <div class="row">
+
+        <% @bookings_as_chef.each do |booking| %>
+          <% if booking.menu.user = current_user %>
+           <p> <%= booking.menu.name %> </p>
+           <p> <%= booking.location %> </p>
+           <p> <%= booking.datetime %> </p>
+           <p> <%= booking.guests %> </p>
+           <%= link_to "See Details", booking_path(booking), {class: "btn-btn-danger btn-lg"} %>
+           <% end %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
