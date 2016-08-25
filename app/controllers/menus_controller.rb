@@ -6,6 +6,7 @@ class MenusController < ApplicationController
   end
 
   def show
+    @chef = Menu.user
   end
 
   def new
