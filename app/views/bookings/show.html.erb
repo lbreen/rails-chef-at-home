@@ -13,7 +13,14 @@
        <p> <%= @booking.location %> </p>
        <p> <%= @booking.datetime %> </p>
        <p> <%= @booking.guests %> </p>
-        <%= link_to "delete", booking_path, method: :delete, class: "btn btn-danger" %>
+       <p> <%= @booking.menu.price %> </p>
+       <p> <%= @booking.menu.preparation_time %> </p>
+       <p> <%= @booking.menu.category %> </p>
+       <p> <%= @booking.menu.starter %> </p>
+       <p> <%= @booking.menu.main %> </p>
+       <p> <%= @booking.menu.dessert %> </p>
+
+
         <%= link_to "See all my bookings", user_bookings_path, class: "btn btn-danger" %>
 
   </div>
