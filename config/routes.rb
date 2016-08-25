@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show] do
-    resources :menus, only: [:new, :create]
+    resources :menus, only: [:new, :create, :edit, :update]
   end
 
   mount Attachinary::Engine => "/attachinary"
