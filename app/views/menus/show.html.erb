@@ -1,6 +1,6 @@
 
 <% if @menu.photos? %>
-        <% image = cl_image_path @menu.photos[0].path %>
+        <% image = cl_image_path @menu.photos[0].path, gravity: :center, crop: :lfill %>
 <% else %>
         <% image = 'http://placehold.it/350x150' %>
 <% end %>
