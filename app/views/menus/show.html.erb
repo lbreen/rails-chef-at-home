@@ -47,7 +47,7 @@
           </div>
           <div class="user-card-details">
             <ul class="text-center">
-              <li> <i class="fa fa-money" aria-hidden="true"></i> <%= @menu.price %> £ p/p </li>
+              <li> <i class="fa fa-money" aria-hidden="true"></i> £<%= @menu.price %> p/p </li>
               <li> <i class="fa fa-cutlery" aria-hidden="true"></i> <%= @menu.category %></li>
               <li> <i class="fa fa-users" aria-hidden="true"></i> from <%= @menu.min_guests %> to <%= @menu.max_guests %> </li>
               <li> <h3>Starter</h3><p> <%= @menu.starter %></p></li>
@@ -64,6 +64,49 @@
       </div>
     </div>
   </div>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner " role="listbox">
+    <div class="item carousel-height active">
+      <% image = cl_image_path @menu.photos[0].path, width: 500, height: 400, gravity: :center, crop: :lfill %>
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    <div class="item carousel-height">
+      <% image = cl_image_path @menu.photos[1].path, width: 500, height: 400, gravity: :center, crop: :lfill %>
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    <div class="item carousel-height">
+      <% image = cl_image_path @menu.photos[2].path, width: 500, height: 400, gravity: :center, crop: :lfill %>
+      <div class="carousel-caption">
+        ...
+      </div>
+    </div>
+    ...
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
+</div>
+
 
 
