@@ -6,4 +6,5 @@ class Booking < ApplicationRecord
   validates :guests, presence: true, numericality: true
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
+
 end
