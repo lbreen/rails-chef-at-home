@@ -17,12 +17,11 @@
 
 
 
-
         <div class="col-xs-12">
           <div class="banner-form text-center">
              <%= form_tag(menus_path, :method => "get", id: "search-form", class: "navbar form-inline") do %>
-                <%= text_field_tag :category, nil, :placeholder => "What type of Menu?", :class => "form-control" %>
-                <%= select_tag :max_guests, options_for_select((1..10)), :prompt => "Number of guest", :class => "form-control"  %>
+                <%= select_tag :category, options_for_select(@categories), :prompt => "What type of Menu?", :class => "form-control" %>
+                <%= select_tag :guests, options_for_select((1..10)), :prompt => "Number of guest", :class => "form-control"  %>
                 <%= submit_tag "Research", class: "btn btn-primary" %>
             <% end %>
           </div>
