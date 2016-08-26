@@ -8,9 +8,6 @@ class Booking < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
 
-
-
-
   def booking_date_cannot_be_in_the_past
     if datetime < Date.today
       errors.add(:datetime, "Cannot be in the past")
