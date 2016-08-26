@@ -1,8 +1,40 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path "kitchen.jpg" %>);">
-  <div class="banner-content">
-    <h1>Chef at home</h1>
-    <p>For fat, lazy, rich people who can't be fucked to cook themselves</p>
-    <%= link_to "View our meals", menus_path, { class: "btn btn-danger" } %>
+<div class="banner">
+  <video autoplay loop poster="polina.jpg" id="bgvid">
+    <source src="https://s3.amazonaws.com/distill-videos/videos/processed/7/cookies.mp4.mp4" type="video/mp4">
+<!--     <source src="https://a0.muscache.com/airbnb/static/Croatia-P1-0.webm" type="video/webm"> -->
+  </video>
+  <div class="banner-content text-center">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-12">
+          <div class="banner-text">
+            <h1 class="text-jumbo">A personal chef at home?</h1>
+            <h4>Choose a Menu, Choose a Chef, live the ultimate experience </h4>
+            <span class="element"></span>
+          </div>
+        </div>
+
+
+
+
+        <div class="col-xs-12">
+          <div class="banner-form text-center">
+             <%= form_tag(menus_path, :method => "get", id: "search-form", class: "navbar form-inline") do %>
+                <%= text_field_tag :category, nil, :placeholder => "What type of Menu?", :class => "form-control" %>
+                <%= select_tag :max_guests, options_for_select((1..10)), :prompt => "Number of guest", :class => "form-control"  %>
+                <%= submit_tag "Research", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
   </div>
 </div>
+
+
+
+
 

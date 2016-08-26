@@ -12,15 +12,14 @@ Rails.application.routes.draw do
     resources :bookings, only:[ :index ]
   end
 
+  resources :menus, only: [:new, :create, :edit, :update, :destroy]
+
   resources :menus, only: [:index, :show] do
     resources :bookings, only: [ :new, :create ]
   end
 
-  resources :users, only: [:index, :show] do
-    resources :menus, only: [:new, :create]
-  end
+  resources :users, only: [:index, :show]
 
-  resources :menus, only: [:edit, :update]
 
   mount Attachinary::Engine => "/attachinary"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
