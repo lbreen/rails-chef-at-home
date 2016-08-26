@@ -57,6 +57,7 @@
                   <%= link_to menu.name, menu_path(menu), { class: "user-card-list-name"} %>
                   <!-- The link below needs to be linked to the menu#edit path - not yet created -->
                   <%= link_to "Edit", edit_menu_path(menu), { class: "btn btn-danger list-edit-btn" } %>
+                  <%= link_to "Delete", menu_path(menu), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger list-delete-btn" %>
                 </div>
               <% end %>
             <% end %>
