@@ -51,14 +51,16 @@
   color: black;
   img {
     flex: 0 0 auto;
+    margin-right: 10px;
   }
 }
 
 .user-card-list-name {
   flex: 1 0 auto;
-  margin: 0 0 0 20px;
+  margin: 0 0 0 0px;
   text-decoration: none;
 }
+
 
 .list-edit-btn {
   flex: 0 0 auto;
@@ -72,3 +74,10 @@
 .user-card-empty-list {
   color: $gray-light;
 }
+
+.list-view-button {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+

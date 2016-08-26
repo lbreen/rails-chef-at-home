@@ -11,7 +11,7 @@
           <p> <%= booking.menu.name %> </p>
 
           <ul>
-            <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.datetime %></li>
+            <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.datetime.strftime("%A %d %B %H:%M") %></li>
             <li><i class="fa fa-map-marker" aria-hidden="true"> </i> <%= booking.location %></li>
             <li> <i class="fa fa-money" aria-hidden="true"></i> <%= booking.menu.price %> £ p/p </li>
             <li> <i class="fa fa-cutlery" aria-hidden="true"></i> <%= booking.menu.category %></li>
@@ -33,7 +33,7 @@
         <div class='product-body'>
           <p> <%= booking.menu.name %> </p>
           <ul>
-            <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.datetime %></li>
+            <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.datetime.strftime("%A %d %B %H:%M") %></li>
             <li><i class="fa fa-map-marker" aria-hidden="true"> </i> <%= booking.location %></li>
             <li> <i class="fa fa-money" aria-hidden="true"></i> <%= booking.menu.price %> £ p/p </li>
             <li> <i class="fa fa-cutlery" aria-hidden="true"></i> <%= booking.menu.category %></li>

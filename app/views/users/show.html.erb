@@ -78,14 +78,22 @@
               </div>
             <% else %>
               <% @user.bookings.each do |booking| %>
-                <div class="user-card-list">
-                  <%= link_to booking.menu.name, booking_path(booking), { class: "user-card-list-name"} %>
-                  <p> on <%= booking.datetime %></p>
+                <div class="user-card-list" ">
+                  <% if booking.menu.photos? %>
+                    <%= cl_image_tag booking.menu.photos[0].path, crop: :fill, class: "avatar" %>
+                  <% else %>
+                    <%= image_tag "logo.png", class: "avatar" %>
+                  <% end %>
+                  <ul class="user-card-list-name">
+                    <li> <%= booking.menu.name[0..40].gsub(/\s\w+\s*$/, '...') %></li>
+                    <li> <%= booking.datetime.strftime("%A %d %B %H:%M") %> </li>
+                  </ul>
+                    <%= link_to "View", booking_path(booking), { class: "btn btn-danger list-view-button"} %>
                 </div>
               <% end %>
             <% end %>
           </div>
-          <%= link_to "View all bookings", root_path, { class: "btn btn-danger user-card-btn" } %>
+          <%= link_to "View all bookings", user_bookings_path, { class: "btn btn-danger user-card-btn" } %>
         </div>
       </div>
     </div>
