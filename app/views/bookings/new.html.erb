@@ -1,20 +1,28 @@
-<div class="form-wrapper">
-  <div class = "container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
-        <div class="form">
-            <h2> Make a Booking </h2>
-          <%= simple_form_for [@booking.menu, @booking] do |f| %>
-            <%= f.input :location %>
-            <%= f.input :datetime, label: 'Date and Time' %>
-            <%= f.input :guests %>
-            <%= f.submit "Make a booking", class: "btn btn-primary" %>
-          <% end %>
+
+<% if @booking.menu.photos? %>
+        <% image = cl_image_path @booking.menu.photos[0].path %>
+<% else %>
+        <% image = 'http://unsplash.it/1000/800' %>
+<% end %>
+
+<div class="banner"  id="booking-form-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image %>);">
+  <div class="banner-content">
+    <div class="form-wrapper" id="wrapper-booking-form">
+      <div class = "container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+            <div class="form" id="booking-form">
+                <h2> Make a Booking </h2>
+              <%= simple_form_for [@booking.menu, @booking] do |f| %>
+                <%= f.input :location %>
+                <%= f.input :datetime, label: 'Date and Time' %>
+                <%= f.input :guests, label: 'Headcount', collection:(@booking.menu.min_guests..@booking.menu.max_guests).to_a %>
+                <%= f.submit "Make a booking", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+ </div>
 </div>
-
-
-

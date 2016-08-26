@@ -64,3 +64,9 @@ video#bgvid {
     background: url(polina.jpg) no-repeat;
     background-size: cover;
 }
+
+#booking-form-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
