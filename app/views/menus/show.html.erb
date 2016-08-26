@@ -1,8 +1,7 @@
-
 <% if @menu.photos? %>
-        <% image = cl_image_path @menu.photos[0].path, gravity: :center, crop: :lfill %>
+  <% image = cl_image_path @menu.photos[0].path, gravity: :center, crop: :lfill %>
 <% else %>
-        <% image = 'http://placehold.it/350x150' %>
+  <% image = 'http://placehold.it/350x150' %>
 <% end %>
 
 <div class="banner" id="half-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image %>)"">
