@@ -42,3 +42,15 @@
 .card-link:hover{
   opacity: 0.1;
 }
+
+.card-wrapper {
+  background-color: $gray-lighter;
+  min-height: 100vh;
+  h1 {
+    margin: 0;
+    padding: 20px;
+  }
+  h2 {
+    padding-bottom: 20px;
+  }
+}

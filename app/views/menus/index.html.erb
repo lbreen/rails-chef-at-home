@@ -1,13 +1,15 @@
-<h1 class="text-center"> See our Menu's</h1>
+<div class="card-wrapper">
+  <h1 class="text-center"> See our Menu's</h1>
 
-<h2 class="text-center">We found <%= pluralize(@selected_menus.count, "result") %> for a <%= @selected_category.capitalize %> menu!</h2>
+  <h2 class="text-center">We found <%= pluralize(@selected_menus.count, "result") %> for a <%= @selected_category.capitalize %> menu!</h2>
 
-<div class="container">
-  <div class="row">
-    <% @selected_menus.each do |m| %>
-    <div class="col-xs-12 col-sm-6">
-        <%= render "card", menu: m %>
+  <div class="container">
+    <div class="row">
+      <% @selected_menus.each do |m| %>
+      <div class="col-xs-12 col-sm-6">
+          <%= render "card", menu: m %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
