@@ -4,6 +4,13 @@ class MenusController < ApplicationController
 
   def index
     @menus = Menu.all
+    @selected_category = params[:category]
+    @selected_guests = params[:guests]
+    if @selected_guests.empty?
+      @selected_menus = @menus.select { |menu| menu.category.downcase == @selected_category.downcase }
+    else
+      @selected_menus = @menus.select { |menu| menu.category.downcase == @selected_category.downcase && menu.min_guests < @selected_guests.to_i && @selected_guests.to_i < menu.max_guests }
+    end
   end
 
   def show
