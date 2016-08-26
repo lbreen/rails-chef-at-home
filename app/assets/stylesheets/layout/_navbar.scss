@@ -28,7 +28,14 @@
 .navbar-wagon-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+}
+
+/* Navbar left section (with logo and title) */
+.navbar-wagon-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 /* Navbar item */
@@ -128,4 +135,9 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+#search-category, #search-num-guests {
+  margin-right: 10px;
+  width: 190px;
 }

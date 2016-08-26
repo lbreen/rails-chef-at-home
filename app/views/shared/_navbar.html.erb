@@ -1,33 +1,27 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
-    <%= image_tag 'logo.png' %>
-  </a>
+  <div class="navbar-wagon-left">
+    <a href="/" class="navbar-wagon-brand">
+      <%= image_tag 'logo.png' %>
+    </a>
+
+    <h2>Chef@home</h2>
+  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
+    <% categories = %w(Italian Chinese Japanese Belgian French Indian Lebanese Persian Etiopian Vietnameese English Spanish Carribean Greek)
+ %>
 
-    <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Contact</a>
+    <%= form_tag(menus_path, :method => "get", id: "nav-search-form", class: "navbar-wagon-search") do %>
+      <%= select_tag :category, options_for_select(categories), :prompt => "What type of Menu?", :class => "form-control navbar-wagon-search-input", :id => "search-category" %>
+      <%= select_tag :guests, options_for_select((1..10)), :prompt => "Number of guest", :class => "form-control navbar-wagon-search-input", :id => "search-num-guests"  %>
+      <%= submit_tag "Research", class: "btn btn-primary" %>
+    <% end %>
 
     <!-- Text link -->
     <a href="" class="navbar-wagon-item navbar-wagon-link">Team</a>
-
-    <!-- Notification link-->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">
-      <div class="badge-container">
-        <i class="fa fa-envelope-o"></i>
-        <div class="badge badge-blue">3</div>
-      </div>
-    </a>
 
     <!-- Profile picture and dropdown -->
     <% if user_signed_in? %>
