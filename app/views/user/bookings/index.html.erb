@@ -1,63 +1,60 @@
-
-
-
 <div class="product-wrapper">
-<h1 class="text-center"> Your bookings </h1>
+  <h1 class="text-center"> Your bookings </h1>
 
-<div class="wrapper" id="Customer-bookings">
-  <h2>Customer</h2>
-  <% @bookings_as_user.each do |booking| %>
-    <% if booking.menu.photos? %>
-        <% image = cl_image_path @booking.menu.photos[0].path %>
-    <% else %>
+  <div class="wrapper" id="Customer-bookings">
+    <h2>Customer</h2>
+    <% @bookings_as_user.each do |booking| %>
+      <% if booking.menu.photos? %>
+          <% image = cl_image_path booking.menu.photos[0].path %>
+      <% else %>
+          <% image = "https://unsplash.it/1000/800" %>
+      <% end %>
+      <% if booking.menu.user = current_user %>
+        <div class="product">
+          <%= image_tag image, { class: "product-image hidden-xs"} %>
+          <div class='product-body'>
+            <p> <%= booking.menu.name %> </p>
+
+            <ul>
+              <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.datetime.strftime("%A %d %B %H:%M") %></li>
+              <li><i class="fa fa-map-marker" aria-hidden="true"> </i> <%= booking.location %></li>
+              <li> <i class="fa fa-money" aria-hidden="true"></i> <%= booking.menu.price %> £ p/p </li>
+              <li> <i class="fa fa-cutlery" aria-hidden="true"></i> <%= booking.menu.category %></li>
+              <li> <i class="fa fa-users" aria-hidden="true"></i> <%= booking.guests %> </li>
+            </ul>
+          </div>
+          <%= link_to "", booking_path(booking), class: "product-link" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="wrapper" id="Chef-bookings">
+    <h2>Chef</h2>
+    <% @bookings_as_chef.each do |booking| %>
+      <% if booking.menu.photos? %>
+        <% image = cl_image_path booking.menu.photos[0].path %>
+      <% else %>
         <% image = "https://unsplash.it/1000/800" %>
-    <% end %>
-    <% if booking.menu.user = current_user %>
-      <div class="product">
-        <%= image_tag image, { class: "product-image hidden-xs"} %>
-        <div class='product-body'>
-          <p> <%= booking.menu.name %> </p>
-
-          <ul>
-            <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.datetime.strftime("%A %d %B %H:%M") %></li>
-            <li><i class="fa fa-map-marker" aria-hidden="true"> </i> <%= booking.location %></li>
-            <li> <i class="fa fa-money" aria-hidden="true"></i> <%= booking.menu.price %> £ p/p </li>
-            <li> <i class="fa fa-cutlery" aria-hidden="true"></i> <%= booking.menu.category %></li>
-            <li> <i class="fa fa-users" aria-hidden="true"></i> <%= booking.guests %> </li>
-          </ul>
+      <% end %>
+      <% if booking.menu.user = current_user %>
+        <div class="product">
+          <%= image_tag image, { class: "product-image hidden-xs"} %>
+          <div class='product-body'>
+            <p> <%= booking.menu.name %> </p>
+            <ul>
+              <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.datetime.strftime("%A %d %B %H:%M") %></li>
+              <li><i class="fa fa-map-marker" aria-hidden="true"> </i> <%= booking.location %></li>
+              <li> <i class="fa fa-money" aria-hidden="true"></i> <%= booking.menu.price %> £ p/p </li>
+              <li> <i class="fa fa-cutlery" aria-hidden="true"></i> <%= booking.menu.category %></li>
+              <li> <i class="fa fa-users" aria-hidden="true"></i> <%= booking.guests %> </li>
+            </ul>
+          </div>
+          <%= link_to "", booking_path(booking), class: "product-link" %>
         </div>
-        <%= link_to "", booking_path(booking), class: "product-link" %>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-
-<div class="wrapper" id="Chef-bookings">
-  <h2>Chef</h2>
-  <% @bookings_as_chef.each do |booking| %>
-    <% if booking.menu.photos? %>
-      <% image = cl_image_path @booking.menu.photos[0].path %>
-    <% else %>
-      <% image = "https://unsplash.it/1000/800" %>
-    <% end %>
-    <% if booking.menu.user = current_user %>
-      <div class="product">
-        <%= image_tag image, { class: "product-image hidden-xs"} %>
-        <div class='product-body'>
-          <p> <%= booking.menu.name %> </p>
-          <ul>
-            <li><i class="fa fa-calendar" aria-hidden="true"></i> <%= booking.datetime.strftime("%A %d %B %H:%M") %></li>
-            <li><i class="fa fa-map-marker" aria-hidden="true"> </i> <%= booking.location %></li>
-            <li> <i class="fa fa-money" aria-hidden="true"></i> <%= booking.menu.price %> £ p/p </li>
-            <li> <i class="fa fa-cutlery" aria-hidden="true"></i> <%= booking.menu.category %></li>
-            <li> <i class="fa fa-users" aria-hidden="true"></i> <%= booking.guests %> </li>
-          </ul>
-        </div>
-        <%= link_to "", booking_path(booking), class: "product-link" %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+  </div>
 </div>
 
 
