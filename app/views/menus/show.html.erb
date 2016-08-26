@@ -1,6 +1,6 @@
 
 <% if @menu.photos? %>
-        <% image = cl_image_path @menu.photos[0].path %>
+        <% image = cl_image_path @menu.photos[0].path, gravity: :center, crop: :lfill %>
 <% else %>
         <% image = 'http://placehold.it/350x150' %>
 <% end %>
@@ -21,24 +21,24 @@
           <div class="user-card-title text-center">
             <h2> Your Chef </h2>
           </div>
-            <div class="chef-card-photo text-center">
-              <% if @menu.user.photo? %>
-                <%= cl_image_tag @menu.user.photo.path, width: 200, height: 200, crop: :fill, class: "img-circle" %>
-              <% else %>
-                <%= image_tag "logo.png", class: "img-circle avatar-menu text-center" %>
-              <% end %>
-            </div>
+          <div class="chef-card-photo text-center">
+            <% if @menu.user.photo? %>
+              <%= cl_image_tag @menu.user.photo.path, width: 200, height: 200, crop: :fill, class: "img-circle" %>
+            <% else %>
+              <%= image_tag "logo.png", class: "img-circle avatar-menu text-center" %>
+            <% end %>
+          </div>
           <div class="user-card-details text-center">
             <ul class="text-center">
               <li> <%= @chef.first_name %><%= @chef.last_name %></li>
               <li> <%= @chef.description %></li>
             </ul>
           </div>
-            <% if user_signed_in? %>
+          <% if user_signed_in? %>
             <%= link_to "Chef's profile", new_menu_booking_path(@menu), {class: "btn btn-primary user-card-btn"} %>
-            <% else %>
+          <% else %>
             <%= link_to "Chef's profile", new_user_registration_path, {class: "btn btn-primary user-card-btn"} %>
-            <% end %>
+          <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6">
