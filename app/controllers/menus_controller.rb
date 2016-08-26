@@ -8,6 +8,7 @@ class MenusController < ApplicationController
 
   def show
     @chef = @menu.user
+    @session = @menu.id
   end
 
   def new
