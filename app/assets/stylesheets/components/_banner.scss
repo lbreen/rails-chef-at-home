@@ -48,12 +48,14 @@
 }
 
 video#bgvid {
-    position: absolute;
-    top: 42%;
+    position: fixed;
+    top: 50%;
     left: 50%;
-    // height: auto;
-    // width: 100%;
-    bottom: 0px;
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    // bottom: 0px;
     z-index: -100;
     -ms-transform: translateX(-50%) translateY(-50%);
     -moz-transform: translateX(-50%) translateY(-50%);
