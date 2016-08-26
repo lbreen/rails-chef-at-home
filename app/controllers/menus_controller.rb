@@ -36,8 +36,8 @@ class MenusController < ApplicationController
   end
 
   def update
-
     @menu.update(menu_params)
+    redirect_to menu_path(@menu)
   end
 
   def destroy
