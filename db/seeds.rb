@@ -65,20 +65,3 @@ i = 0
 
   i += 1
 end
-
-#  Past bookings
-
-i = 0
-
-5.times do
-  Booking.create!({
-    user_id: users[i + 5].id,
-    menu_id: menus[i + 5].id,
-    location: users[i].postal_address,
-    datetime: Faker::Time.backward(14, :evening),
-    guests: rand(0..10),
-    rating: rand(0..5)
-    })
-
-  i += 1
-end
