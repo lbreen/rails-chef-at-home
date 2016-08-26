@@ -45,13 +45,13 @@
           </ul>
         </div>
       </div>
+      <%= link_to "Add new meal", new_menu_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <% else %>
       <%= link_to "Sign up", new_user_registration_path, { class: "navbar-wagon-item navbar-wagon-link"} %>
-      <%= link_to "Log in", new_user_session_path, { class: "navbar-wagon-item navbar-wagon-link"} %>
+      <%= link_to "Log in", new_user_session_path, { class: "navbar-wagon-item navbar-wagon-button btn"} %>
     <% end %>
 
     <!-- Button (call-to-action) -->
-    <a href="" class="navbar-wagon-item navbar-wagon-button btn">Post stuff</a>
   </div>
 
   <!-- Dropdown appearing on mobile only -->
