@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.3.5'
 
 gem 'rails', '5.0.0.1'
 gem 'puma'
@@ -10,8 +10,8 @@ gem 'redis'
 
 #  Photo upload gems
 gem 'cloudinary', '1.1.0'
-gem "attachinary", github: "assembler/attachinary"
-gem "jquery-fileupload-rails"
+gem 'attachinary'
+gem 'jquery-fileupload-rails'
 
 
 gem 'sass-rails'
